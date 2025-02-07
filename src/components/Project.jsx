@@ -1,13 +1,23 @@
-function Project({ projectInfo }) {
+function Project({ projectInfo, darkMode }) {
   return (
     <>
-      <h2>{projectInfo.name}</h2>
-      <p>{projectInfo.description}</p>
-      <ul>
-        {projectInfo.techstack.map((item, index) => (
-          <li key={index}> {item} </li>
-        ))}
-      </ul>
+      <div
+        className="card"
+        style={{
+          borderColor: darkMode ? "white" : "var(--dark)",
+          backgroundColor: darkMode ? "salmon" : "papayawhip",
+        }}
+      >
+        <h2 style={{ textDecoration: darkMode ? "underline" : "none" }}>
+          {projectInfo.name}
+        </h2>
+        <p>{projectInfo.description}</p>
+        <ul>
+          {projectInfo.techstack.map((item, index) => (
+            <span key={index}> {item} </span>
+          ))}
+        </ul>
+      </div>
     </>
   );
 }
